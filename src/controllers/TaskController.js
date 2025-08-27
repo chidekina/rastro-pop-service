@@ -8,7 +8,7 @@ const bodySchema = z.object({
 
 class TaskController {
 
-    read(req, res) {
+    static read(req, res) {
         try {
             const tasksList = TaskModel.read();
             return res.json(tasksList);
@@ -20,7 +20,7 @@ class TaskController {
         }
     }
 
-    index(req, res) {
+    static index(req, res) {
         try {
             const id = req.params.id;
 
@@ -46,7 +46,7 @@ class TaskController {
         }
     }
 
-    create(req, res) {
+    static create(req, res) {
         try {
             const taskData = bodySchema.parse(req.body);
             const newTask = TaskModel.create(taskData);
@@ -69,7 +69,7 @@ class TaskController {
         }
     }
 
-    update(req, res) {
+    static update(req, res) {
         try {
             const id = req.params.id;
 
@@ -107,7 +107,7 @@ class TaskController {
         }
     }
 
-    delete(req, res) {
+    static delete(req, res) {
         try {
             const id = req.params.id;
 
