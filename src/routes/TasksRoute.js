@@ -1,5 +1,5 @@
 const express = require("express");
-const TaskController = require("../controllers/TaskController");
+const TaskController = require("@/controllers/TaskController");
 const TaskRouter = express.Router();
 
 TaskRouter.get("/", TaskController.read);

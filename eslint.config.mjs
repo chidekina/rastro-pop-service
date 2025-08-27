@@ -1,14 +1,28 @@
 import js from "@eslint/js";
 import globals from "globals";
+import importPlugin from "eslint-plugin-import";
 
 export default [
     {
         files: ["**/*.js"],
+        plugins: {
+            import: importPlugin
+        },
         languageOptions: {
             ecmaVersion: "latest",
             sourceType: "commonjs",
             globals: {
                 ...globals.node
+            }
+        },
+        settings: {
+            "import/resolver": {
+                alias: {
+                    map: [
+                        ["@", "./src"]
+                    ],
+                    extensions: [".js", ".json"]
+                }
             }
         },
         rules: {

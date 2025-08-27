@@ -1,5 +1,5 @@
 const { z } = require("zod");
-const TaskModel = require("../model/TaskModel");
+const TaskModel = require("@/model/TaskModel");
 
 const bodySchema = z.object({
     title: z.string().min(6, "O título deve ter pelo menos 6 caracteres."),
