@@ -13,7 +13,7 @@ class TaskModel {
         { 
             id: 3,
             title: "Curso Filipe Deschamps",
-            "description": "Terminar o módulo 4 de POO do curso"
+            description: "Terminar o módulo 4 de POO do curso"
         }
     ]
 
@@ -44,7 +44,9 @@ class TaskModel {
                 ...data,
                 id: Number(id),
             };
+            return TaskModel.list[index];
         }
+        return null;
     }
 
     static delete(id) {
