@@ -24,9 +24,9 @@ class TaskController {
         try {
             const id = req.params.id;
 
-            if (!id || isNaN(id)) {
+            if (!id || isNaN(id) || id <= 0) {
                 return res.status(400).json({
-                    error: "ID é obrigatório."
+                    error: "ID deve ser um número positivo válido."
                 });
             }
 
@@ -48,11 +48,12 @@ class TaskController {
 
     create(req, res) {
         try {
-            const taskCreated = bodySchema.parse(req.body);
-            TaskModel.create(taskCreated);
+            const taskData = bodySchema.parse(req.body);
+            const newTask = TaskModel.create(taskData);
 
             return res.status(201).json({
-                message: "Tarefa criada com sucesso."
+                message: "Tarefa criada com sucesso.",
+                task: newTask
             });
         } catch (error) {
             if (error instanceof z.ZodError) {
@@ -72,13 +73,13 @@ class TaskController {
         try {
             const id = req.params.id;
 
-            if (!id || isNaN(id)) {
+            if (!id || isNaN(id) || id <= 0) {
                 return res.status(400).json({
-                    error: "ID é obrigatório."
+                    error: "ID deve ser um número positivo válido."
                 });
             }
 
-            const existingTask = TaskModel.index(id)
+            const existingTask = TaskModel.index(id);
 
             if (!existingTask) {
                 return res.status(404).json({
@@ -86,11 +87,12 @@ class TaskController {
                 });
             }
 
-            const taskUpdated = bodySchema.parse(req.body);
-            TaskModel.update(id, taskUpdated);
+            const taskData = bodySchema.parse(req.body);
+            const updatedTask = TaskModel.update(id, taskData);
 
             return res.json({
-                message: "Tarefa atualizada com sucesso!"
+                message: "Tarefa atualizada com sucesso!",
+                task: updatedTask
             });
         } catch (error) {
             if (error instanceof z.ZodError) {
@@ -109,9 +111,9 @@ class TaskController {
         try {
             const id = req.params.id;
 
-            if (!id || isNaN(id)) {
+            if (!id || isNaN(id) || id <= 0) {
                 return res.status(400).json({
-                    error: "ID é obrigatório."
+                    error: "ID deve ser um número positivo válido."
                 });
             }
 
@@ -123,7 +125,7 @@ class TaskController {
                 });
             }
 
-            TaskModel.delete(id)
+            TaskModel.delete(id);
 
             return res.json({
                 message: "Tarefa excluída com sucesso!"
