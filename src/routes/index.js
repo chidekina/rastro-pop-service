@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const TaskRouter = require('./TasksRoute');
+const { Router } = require("express");
+const TaskRouter = require("./TasksRoute");
 
 const routes = Router();
 routes.use("/tasks", TaskRouter);

@@ -2,7 +2,7 @@ class TaskModel {
     static list = [
         {
             id: 1,
-            title: 'Meeting de alinhamento',
+            title: "Meeting de alinhamento",
             description: "Alinhamento com o time de backend para revisão de sprints"
         },
         {
@@ -10,12 +10,12 @@ class TaskModel {
             title: "Compras da semana",
             description: "Ir ao supermercado para fazer as compras da semana"
         },
-        { 
+        {
             id: 3,
             title: "Curso Filipe Deschamps",
             description: "Terminar o módulo 4 de POO do curso"
         }
-    ]
+    ];
 
     static read() {
         return TaskModel.list;
@@ -29,7 +29,7 @@ class TaskModel {
         const newId = Math.max(...TaskModel.list.map(item => item.id), 0) + 1;
         const newTask = {
             id: newId,
-            ...data,
+            ...data
         };
 
         TaskModel.list.push(newTask);
@@ -42,7 +42,7 @@ class TaskModel {
             TaskModel.list[index] = {
                 ...TaskModel.list[index],
                 ...data,
-                id: Number(id),
+                id: Number(id)
             };
             return TaskModel.list[index];
         }

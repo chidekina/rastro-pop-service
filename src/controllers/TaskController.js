@@ -1,9 +1,9 @@
-const { z } = require('zod');
-const TaskModel = require('../model/TaskModel');
+const { z } = require("zod");
+const TaskModel = require("../model/TaskModel");
 
 const bodySchema = z.object({
     title: z.string().min(6, "O título deve ter pelo menos 6 caracteres."),
-    description: z.string().min(6, "A descrição deve ter pelo menos 6 caracteres."),
+    description: z.string().min(6, "A descrição deve ter pelo menos 6 caracteres.")
 });
 
 class TaskController {
@@ -59,7 +59,7 @@ class TaskController {
             if (error instanceof z.ZodError) {
                 return res.status(400).json({
                     error: "Dados inválidos",
-                    details: error.errors,
+                    details: error.errors
                 });
             }
 
@@ -98,7 +98,7 @@ class TaskController {
             if (error instanceof z.ZodError) {
                 return res.status(400).json({
                     error: "Dados inválidos",
-                    details: error.errors,
+                    details: error.errors
                 });
             }
             return res.status(500).json({
@@ -117,7 +117,7 @@ class TaskController {
                 });
             }
 
-            const existingTask = TaskModel.index(id)
+            const existingTask = TaskModel.index(id);
 
             if (!existingTask) {
                 return res.status(404).json({
