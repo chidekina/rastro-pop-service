@@ -2,7 +2,6 @@ const TaskModel = require("@/model/TaskModel");
 
 describe("TaskModel", () => {
     beforeEach(() => {
-        // Reset da lista antes de cada teste
         TaskModel.list = [
             {
                 id: 1,
