@@ -1,0 +1,152 @@
+type: collection.insomnia.rest/5.0
+name: To do list
+meta:
+  id: wrk_27ec3c850da744f99eae6c1938f3e9b9
+  created: 1756325148641
+  modified: 1756325220371
+collection:
+  - name: Tasks
+    meta:
+      id: fld_b941e117de764b12b94ba8a70e639221
+      created: 1756325176300
+      modified: 1756325316386
+      sortKey: -1756325176300
+    children:
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Show All
+        meta:
+          id: req_16a5e2d875c843feb05c128c69d45f64
+          created: 1756325148956
+          modified: 1756325324558
+          isPrivate: false
+          sortKey: -1756325183855
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}/1"
+        name: Index
+        meta:
+          id: req_101a8276bf2e42e4a6262465c5958311
+          created: 1756325333168
+          modified: 1756325711993
+          isPrivate: false
+          sortKey: -1756325183955
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}"
+        name: Create
+        meta:
+          id: req_92426f93c6264bdf89b641b69c393168
+          created: 1756325386930
+          modified: 1756325750079
+          isPrivate: false
+          sortKey: -1756325386930
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+            	"title": "Enviar teste tecnico",
+            	"description": "Enviar o respositorio do teste tecnico para o Francisco"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}/2"
+        name: Update
+        meta:
+          id: req_27b5fd28f7c64c108fcc526352a82a39
+          created: 1756325474339
+          modified: 1756325748104
+          isPrivate: false
+          sortKey: -1756325387030
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Curso Filipe Deschamps",
+            	"description": "terminar modulo de next.js"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _.BASE_URL }}/{{ _.RESOURCE }}/3"
+        name: Delete
+        meta:
+          id: req_a32c9d4d5fed47969b04fa4e1c9551ba
+          created: 1756325663204
+          modified: 1756325721691
+          isPrivate: false
+          sortKey: -1756325663204
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      RESOURCE: tasks
+    environmentPropertyOrder:
+      "&":
+        - RESOURCE
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_af9fa83e9e3bf7a810dc001cc862420fa49fc01c
+    created: 1756325148652
+    modified: 1756325148652
+environments:
+  name: Base Environment
+  meta:
+    id: env_af9fa83e9e3bf7a810dc001cc862420fa49fc01c
+    created: 1756325148646
+    modified: 1756325259507
+    isPrivate: false
+  data:
+    BASE_URL: http://localhost:3000
