@@ -23,6 +23,7 @@ O Rastro Pop Service é uma API backend que oferece operações CRUD completas p
 - **Zod** - Validação de schemas
 - **Docker** - Containerização
 - **ESLint** - Linting e padronização de código
+- **Jest** - Framework de testes
 
 ## 📦 Instalação
 
@@ -154,7 +155,26 @@ npm run lint
 
 # Corrigir problemas de linting
 npm run lint:fix
+
+# Executar testes
+npm test
 ```
+
+## 🧪 Testes
+
+O projeto inclui testes unitários para o modelo de dados usando Jest.
+
+Para executar os testes:
+```bash
+npm test
+```
+
+Os testes cobrem:
+- Criação de tarefas
+- Listagem de tarefas
+- Busca por ID
+- Atualização de tarefas
+- Exclusão de tarefas
 
 ## ⚙️ Variáveis de Ambiente
 
