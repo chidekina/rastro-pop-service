@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(routes);
 
 const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = process.env.HOST || "0.0.0.0";
 
 app.listen(PORT, HOST, () => {
     console.log(`Servidor escutando em http://${HOST}:${PORT}`);
