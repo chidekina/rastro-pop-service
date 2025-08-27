@@ -22,20 +22,33 @@ class TaskModel {
     }
 
     static index(id) {
-        return task = TaskModel.list.filter(item => item.id === Number(id));
+        return TaskModel.list.find(item => item.id === Number(id));
     }
 
     static create(data) {
-        TaskModel.list.push(data);
+        const newId = Math.max(...TaskModel.list.map(item => item.id), 0) + 1;
+        const newTask = {
+            id: newId,
+            ...data,
+        };
+
+        TaskModel.list.push(newTask);
+        return newTask;
     }
 
     static update(id, data) {
         const index = TaskModel.list.findIndex(item => item.id === Number(id));
-        TaskModel.list[index] = data;
+        if (index !== -1) {
+            TaskModel.list[index] = {
+                ...TaskModel.list[index],
+                ...data,
+                id: Number(id),
+            };
+        }
     }
 
     static delete(id) {
-        const taskListUpdated = TaskModel.list.findIndex(index => item.id === Number(id));
+        const taskListUpdated = TaskModel.list.filter(item => item.id !== Number(id));
         TaskModel.list = taskListUpdated;
     }
 };
